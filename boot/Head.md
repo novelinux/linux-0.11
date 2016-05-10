@@ -6,11 +6,11 @@ main函数开始的用C语言编写的操作系统内核程序.
 
 A. 加载bootsect到0x07C00, 然后复制到0x90000;
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/Bootsect.md
+https://github.com/novelinux/linux-0.11/tree/master/boot/Bootsect.md
 
 B. 加载setup到0x90200处执行.
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/Setup.md
+https://github.com/novelinux/linux-0.11/tree/master/boot/Setup.md
 
 *注意*: 这两段程序是分别加载,分别执行的.
 
@@ -49,7 +49,7 @@ head程序马上就要在此处建立页目录表, 为分页机制做准备. 执
 影响段限长的关键字段的值是0x7ff, 段限长就是8MB.
 如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/gdt_data_item.jpg
+https://github.com/novelinux/linux-0.11/tree/master/boot/gdt_data_item.jpg
 
 movl $0x10,%eax中的0x10是GDT表中的偏移值(用二进制表示就是10000), 即要参考GDT表中第2项的信息
 (GDT表项号排序为第0项,第1项,第2项)来设置这些段寄存器,这一项就是内核数据段描述符.
@@ -166,7 +166,7 @@ ignore_int:
 
 一个中断描述符的结构如下:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/idt_item.jpg
+https://github.com/novelinux/linux-0.11/tree/master/boot/idt_item.jpg
 
 中断描述符为64位, 包含了其对应中断服务程序的段内偏移地址(OFFSET),所在段选择符(SELECTOR),
 段特权级(DPL),段存在标志(P), 段描述符类型(TYPE)等信息,供CPU在程序中需要进行中断服务时找到
@@ -426,13 +426,13 @@ pg3:
 将页目录表和4个页表放在物理内存的起始位置,这个动作的意义重大,是操作系统能够掌控全局,掌控进程在内存中安全运行的基石之一.
 这些工作完成后, 内存中的布局如下图:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/memory_after_setup_page.jpg
+https://github.com/novelinux/linux-0.11/tree/master/boot/memory_after_setup_page.jpg
 
 可以看出, 只有184个字节的剩余代码, 由此可见在设计head程序和system模块时, 其计算是非常精确的, 对head.s的代码量的控制非常到位.
 head程序已将页表设置完毕了，但分页机制的建立还没有完成。需要设置页目录基址寄存器CR3，使之指向页目录表，
 再将CR0寄存器设置的最高位（31位）置为1，如下图的右中部CR0寄存器的示意图:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/memory.jpg
+https://github.com/novelinux/linux-0.11/tree/master/boot/memory.jpg
 
 * PG(Paging)标志:
 CR0寄存器的第32位, 分页机制控制位. 当CPU的控制寄存器CR0第1位PE(保护模式)置为1时,可设置PG位为开启.
@@ -447,7 +447,7 @@ head程序执行最后一步: ret. 跳入main函数程序执行.
 在上面程序中, main函数的入口地址被压入了栈顶, 现在执行ret了, 正好将压入的main函数的执行入口地址弹出给EIP.
 出栈动作如下所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/jmp_main.jpg
+https://github.com/novelinux/linux-0.11/tree/master/boot/jmp_main.jpg
 
 我们先看看普通函数的调用和返回方法, 因为Linux 0.11 用返回方法调用main函数, 返回位置和main函数的入口在同一段内,
 我们只讲解段内调用和返回:
@@ -478,4 +478,4 @@ head程序在完成如下工作以后:
 
 跳转到main以后的执行:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/init/Main.md
+https://github.com/novelinux/linux-0.11/tree/master/init/Main.md

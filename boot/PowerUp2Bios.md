@@ -107,4 +107,4 @@ B. 对BIOS而言, "约定"接到启动操作系统的命令, "定位"只从启�
 
 之后接下来便要跳转到地址0x7c00地址处执行bootsect程序:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/Bootsect.md
+https://github.com/novelinux/linux-0.11/tree/master/boot/Bootsect.md

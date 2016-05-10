@@ -146,7 +146,7 @@ GNU gcc对ISO标准C89描述的C语言进行了一些扩展，其中一些扩展
 
 预处理阶段 --> 编译阶段 --> 汇编阶段 --> 链接阶段, 如下图所示：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/misc/gcc.jpg
+https://github.com/novelinux/linux-0.11/tree/master/misc/gcc.jpg
 
 * 在预处理阶段中: gcc会把C程序传递给C前处理器cpp，对C语言程序中指示符和宏进行替换处理，输出纯C语言代码；
 * 在编译阶段: gcc把C语言程序编译生成对应的与机器相关的as汇编语言代码；

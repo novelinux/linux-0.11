@@ -96,7 +96,7 @@ setup_paging:
 在分析完这段代码之后,应该对初始化后的页目录表和页表有了一个大概的了解了,
 当这段代码运行完后内存中的映射关系应该如图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/setup_paging.png
+https://github.com/novelinux/linux-0.11/tree/master/memory/setup_paging.png
 
 接下来将内核代码段描述符gdt设置为:
 
@@ -136,7 +136,7 @@ CPU将用这个地址加上偏移量找到对应的页表项,偏移量=线性地
 在 Intel 80x86 的系统中,内存分页管理是通过页目录表和内存页表所组成的二级表进行的。
 见下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/two_step_table.png
+https://github.com/novelinux/linux-0.11/tree/master/memory/two_step_table.png
 
 其中页目录表和页表的结构是一样的,表项结构也相同。页目录表中的每个表项(简称页目录项)
 (4字节)用来寻址一个页表,而每个页表项(4字节)用来指定一页物理内存页。因此,当指定了一个
@@ -151,7 +151,7 @@ https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/two_step_table.p
 一个页表项和对应物理内存页上的偏移地址,从而能间接地寻址到线性地址指定的物理内存位置。
 见下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/line_to_pyh.png
+https://github.com/novelinux/linux-0.11/tree/master/memory/line_to_pyh.png
 
 线性地址的位31-22共10个比特用来确定页目录中的目录项,位21-12用来寻址页目录项指定的页表中的页表项,
 最后的 12 个比特正好用作页表项指定的一页物理内存中的偏移地址。
@@ -165,7 +165,7 @@ https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/line_to_pyh.png
 
 下图用形象的方法示出了一个给定的线性地址是如何映射到物理内存页上的。
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/how_line_to_pyh.png
+https://github.com/novelinux/linux-0.11/tree/master/memory/how_line_to_pyh.png
 
 对于第一个进程(任务0),其页表是在页目录表之后,共4页。对于应用程序的进程,
 其页表所使用的内存是在进程创建时向内存管理程序申请的,因此是在主内存区中.
@@ -176,7 +176,7 @@ https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/how_line_to_pyh.
 设置页表项确定的。每个表项由页框地址、访问标志位、脏(已改写)标志位和存在标志位等构成。
 表项的结构可参见下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/table_item.png
+https://github.com/novelinux/linux-0.11/tree/master/memory/table_item.png
 
 其中,
 * 页框地址 (PAGE FRAME ADDRESS) 指定了一页内存的物理起始地址。因为内存页是位于4K边界上的,

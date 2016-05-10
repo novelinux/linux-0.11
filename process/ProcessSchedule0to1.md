@@ -3,7 +3,7 @@ Linux 0.11 进程0切换到进程1
 
 进程0创建完成进程1以后：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/CreateProcess1.md
+https://github.com/novelinux/linux-0.11/tree/master/process/CreateProcess1.md
 
 现在执行的是进程0的代码，从这里开始，进程0准备切换到进程1去执行。
 
@@ -211,11 +211,11 @@ B. 使用内存操作数，这时候，AS手册规定，内存操作数必须用
 然后再将目标TSS段描述符中的pc,esp,eax的值拷贝至对应的寄存器中.当这些过程全部做完以后内核就实现了
 内核的切换. 可以参考下图：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/task_schedule.gif
+https://github.com/novelinux/linux-0.11/tree/master/process/task_schedule.gif
 
 接下来，轮到进程1执行，它将进一步构建环境，使进程能够以文件的形式与外设交互。
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/Process1Running.md
+https://github.com/novelinux/linux-0.11/tree/master/process/Process1Running.md
 
 **需要提醒的是**:
 **pause()函数的调用是通过int 0x80中断从3特权级的进程0代码翻转到0特权级的内核代码执行的，

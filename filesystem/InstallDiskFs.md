@@ -3,7 +3,7 @@ Linux 0.11 安装硬盘文件系统
 
 在系统轮转到进程1中执行之后,进过下列执行过程:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/Process1Running.md
+https://github.com/novelinux/linux-0.11/tree/master/process/Process1Running.md
 
 之后将调用setup函数来为安装硬盘文件系统作准备.
 下面我们来分析整个过程:
@@ -21,7 +21,7 @@ https://github.com/leeminghao/doc-linux/blob/master/0.11/process/Process1Running
 
 其初始化过程如下：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/init/StartMainInit.md
+https://github.com/novelinux/linux-0.11/tree/master/init/StartMainInit.md
 
 准备过程
 --------------------------------------------------------------------------------
@@ -819,7 +819,7 @@ void sleep_on(struct task_struct **p)
 
 在等待硬盘读数据时,进程调度切换到进程0执行, 从进程1调度到进程0过程如下所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/ProcessSchedule1to0.md
+https://github.com/novelinux/linux-0.11/tree/master/process/ProcessSchedule1to0.md
 
 硬盘在某一时刻把一个扇区的数据读出来了，产生硬盘中断。CPU接到中断指令后，终止正在执行的进程0的程序，
 终止的位置肯定是在pause(), sys_pause(), schedule(), switch_to (n)循环里面的某行指令处.
@@ -1026,7 +1026,7 @@ int sys_setup(void * BIOS)
 根据硬盘分区信息设置hd[]，为安装硬盘文件系统做准备的工作都已完成。
 下面，我们将介绍进程1用虚拟盘替代软盘使之成为根设备，为加载根文件系统做准备:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/ChangeRootDev.md
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/ChangeRootDev.md
 
 总结
 --------------------------------------------------------------------------------

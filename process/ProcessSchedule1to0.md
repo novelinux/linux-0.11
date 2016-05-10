@@ -3,7 +3,7 @@ Linux 0.11 进程1切换到进程0
 
 在进程1为安装硬盘文件系统作准备：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/InstallDiskFs.md
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/InstallDiskFs.md
 
 在这个过程中，需要等待硬盘将引导块从硬盘上读取到块高速缓存中，这时候硬盘正在继续读引导块。
 如果程序继续执行，则需要对引导块中的数据进行操作。但这些数据还没有从硬盘中读完，所以调用
@@ -142,7 +142,7 @@ __asm__("cmpl %%ecx,current\n\t" \  // 任务n是当前任务吗?(current ==task
 
 switch_to (0)执行完后，已经切换到进程0去执行, 当时进程0切换到进程1时:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/ProcessSchedule1to0.md
+https://github.com/novelinux/linux-0.11/tree/master/process/ProcessSchedule1to0.md
 
 是从switch_to (1)的"ljmp %0\n\t"这一行切换走的，TSS中保存当时的CPU所有寄存器的值，
 其中CS:EIP指向的就是它的下一行，所以，现在进程0要从
@@ -174,4 +174,4 @@ pause这个函数将在for（;;）这个循环里面被反复调用，所以，�
 终止的位置肯定是在pause(), sys_pause(), schedule(), switch_to (n)循环里面的某行指令处.
 然后转去执行硬盘中断服务程序:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/InstallDiskFs.md
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/InstallDiskFs.md

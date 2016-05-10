@@ -25,7 +25,7 @@ Linux 内核源代码中的 tools 目录中包含一个生成内核磁盘映象�
 
 该图各个子模块bootsect, setup, system的依赖关系可参考如下:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/tools/Dependencies.md
+https://github.com/novelinux/linux-0.11/tree/master/tools/Dependencies.md
 
 下面我们详细分析下build工具程序,分析其是如何构建出Image内核模块程序:
 

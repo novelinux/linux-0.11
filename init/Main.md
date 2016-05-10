@@ -4,7 +4,7 @@ Linux 0.11 跳转到main函数以后系统初始化
 从开机加电到执行main函数过程
 --------------------------------------------------------------------------------
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/Head.md
+https://github.com/novelinux/linux-0.11/tree/master/boot/Head.md
 
 跳转到main函数以后
 --------------------------------------------------------------------------------
@@ -90,7 +90,7 @@ void main(void)
 
 先根据内存大小对缓冲区和主内存区的位置和大小的初步设置如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/init/memory_layout0.jpg
+https://github.com/novelinux/linux-0.11/tree/master/init/memory_layout0.jpg
 
 ### 初始化虚拟盘(rd_init)
 
@@ -184,7 +184,7 @@ long rd_init(long mem_start, int length)
 
 设置完成后的物理内存的规划格局:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/init/memory_layout1.jpg
+https://github.com/novelinux/linux-0.11/tree/master/init/memory_layout1.jpg
 
 ### 初始化内存管理结构mem_map
 
@@ -320,11 +320,11 @@ __asm__ ("movw %%dx,%%ax\n\t" \  // 将edx的低字赋值给eax的低字
 
 这些代码的目的就是要拼出如下所示的中断描述符:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/init/idt_item.jpg
+https://github.com/novelinux/linux-0.11/tree/master/init/idt_item.jpg
 
 最终执行效果如下所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/init/installed_idt.jpg
+https://github.com/novelinux/linux-0.11/tree/master/init/installed_idt.jpg
 
 example:
 ```
@@ -800,7 +800,7 @@ void main(void)
 
 sched_init创建初始化进程0的过程如下所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/CreateProcess0.md
+https://github.com/novelinux/linux-0.11/tree/master/process/CreateProcess0.md
 
 ### 初始化缓冲区
 
@@ -897,15 +897,15 @@ void buffer_init(long buffer_end)
 直到它们之间已经不能再划分出缓冲块为止。而各个buffer_head被链接成一个空闲缓冲块双向链表结构。
 如下所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/init/buffer_init.png
+https://github.com/novelinux/linux-0.11/tree/master/init/buffer_init.png
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/init/free_buffer_list.png
+https://github.com/novelinux/linux-0.11/tree/master/init/free_buffer_list.png
 
 为了能够快速地在缓冲区中寻找请求的数据块是否已经被读入到缓冲区中, buffer.c程序使用了具有
 307 个buffer_head 指针项的 hash 表结构。buffer_head 结构的指针 b_prev,b_next 就是用于hash
 表中散列在同一项上多个缓冲块之间的双向连接。Hash表所使用的散列函数由设备号和逻辑块号组合而成:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/init/buffer_hashtable.png
+https://github.com/novelinux/linux-0.11/tree/master/init/buffer_hashtable.png
 
 ### 初始化硬盘
 
@@ -1086,7 +1086,7 @@ LDT中获取段描述符,第4～5位的10表示从LDT的第3项中得到进程�
 
 在这里我们提到最多的就是栈，有关Linux 0.11的栈的介绍如下所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/misc/Stack.md
+https://github.com/novelinux/linux-0.11/tree/master/misc/Stack.md
 
 总结
 --------------------------------------------------------------------------------
@@ -1098,4 +1098,4 @@ Linux 0.11跳转到main函数执行以后，其所做的初始化工作如下所
 Linux 0.11经过上面的初始化工作以后， 现在，计算机中已经有了一个名副其实的、3特权级的进程——进程0。
 下面我们要详细讲解进程0做的第一项工作——创建进程1：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/CreateProcess1.md
+https://github.com/novelinux/linux-0.11/tree/master/process/CreateProcess1.md

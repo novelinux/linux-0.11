@@ -9,7 +9,7 @@
 这三种对于内存的使用相对独立,要实现这一些,就决定了物理内存在使用时需要进行划分,而最简单的
 方式就是分块,将内存划分为不同的块,各个块之间各司其职,互不干扰。 linux0.11中就是这样作的。
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/mm_init.png
+https://github.com/novelinux/linux-0.11/tree/master/memory/mm_init.png
 
 Linux0.11 将内存分为内核程序、高速缓冲、虚拟盘、主内存四个部分(黑色部分是页目录表、几个
 页表,全局描述符表,局部描述符表。一般将他们看作内核的一部分)。
@@ -44,7 +44,7 @@ path: mm/memory.c
 static unsigned char mem_map [ PAGING_PAGES ] = {0,}; // 主内存块映射数组
 ```
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/mem_map.png
+https://github.com/novelinux/linux-0.11/tree/master/memory/mem_map.png
 
 mem_map中每一项的内容表示物理内存被多少个的对象使用,所以对应项为0就表示对应物理内存页面空闲。
 可以看出当内核在定义映射数组mem_map时是以主内存块最大可能大小15M来定义的,最低起始地址为LOW_MEM,

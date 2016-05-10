@@ -15,7 +15,7 @@ MINIX文件系统是一个逻辑的, 自包含的实体. 它含有i-节点, 目�
 MINIX的文件系统都有相同的布局. 如下所示是一个128个i-节点和1K块的360K软盘的布局.更大的系统,或者是那些有不同的i-节点数和块大小的系统,
 也同样由这6部分顺序组成,但是各部分之间的相对大小可能不一样:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/minix.png
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/minix.png
 
 引导块:
 --------------------------------------------------------------------------------
@@ -153,4 +153,4 @@ i-节点的链接数目域记录了有多少个目录项指向这个i-节点,因
 若文件还要大,则需要使用二次间接盘块(i_zone[8])。二次间接块的一级盘块的作用类似与一次间接盘块,
 因此使用二次间接盘块可以寻址 512*512 个盘块。如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/i_zone.png
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/i_zone.png

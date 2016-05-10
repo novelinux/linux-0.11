@@ -20,7 +20,7 @@ MMU操作系统内存管理
 这个地址信号称为虚拟地址（virtual address），简称VA，MMU会负责把VA翻译成另一个地址，
 然后发到内存芯片地址引脚上，即VA映射成PA，如下图:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/cpu_mmu_memory.png
+https://github.com/novelinux/linux-0.11/tree/master/memory/cpu_mmu_memory.png
 
 
     所以物理地址是通过CPU对外地址总线传给Memory Chip使用的地址; 而虚拟地址是CPU内部执行

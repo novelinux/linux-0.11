@@ -3,7 +3,7 @@ Linux 0.11 进程2的执行
 
 在进程1创建完进程2之后:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/CreateProcess2.md
+https://github.com/novelinux/linux-0.11/tree/master/process/CreateProcess2.md
 
 接下来轮转到进程2中执行进程2的代码.
 
@@ -70,7 +70,7 @@ int sys_close(unsigned int fd)
 close(0)就是要将当前进程(进程2)的filp[20]第一项清空(就是关闭标准输入设备文件tty0)并递减
 file_table[64]中f_count的计数. 接下来调用open()函数, open函数的调用过程参考:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/OpenTtyAndDup.md
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/OpenTtyAndDup.md
 
 在打开rc文件之后，就会在当前进程filp[20]中选择第一项来建立进程2与rc文件i节点关系，以此来达到
 "rc"来替换"tty0"的效果. 接下来，进程2将要调用execve()函数开始加载shell程序，执行代码如下所示:
@@ -136,7 +136,7 @@ Linux 系统中一般可以放置 /usr/include/ 目录下,以供涉及相关内�
 
 同时为机器类型域定义了相应的宏 N_MACHTYPE 和 N_FLAGS. 如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/a_info.png
+https://github.com/novelinux/linux-0.11/tree/master/process/a_info.png
 
 在Linux 0.9x 系统中,对于采用静态库连接的执行文件,图中各域注释中括号内的值是该字段的默认值。
 这种二进制执行文件开始处的 4 个字节是:
@@ -454,7 +454,7 @@ shell程序开始执行后，其线性地址空间对应的程序内容并未加
 因此就会产生一个"页异常"中断.此中断会进一步调用"缺页中断"处理程序来分配该页面，并
 加载一页shell程序. 执行流程如下所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/PageFault.md
+https://github.com/novelinux/linux-0.11/tree/master/memory/PageFault.md
 
 总结补充
 --------------------------------------------------------------------------------
@@ -492,7 +492,7 @@ execve()函数有大量对参数和环境空间的处理操作,参数和环境�
 在初始时,程序定义了一个指向该空间末端(128kB-4 字节)处空间内偏移值p,该偏移值随着存放数据的增多而后退,
 p明确地指出了当前参数环境空间中还剩余多少可用空间. 如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/argv_env.png
+https://github.com/novelinux/linux-0.11/tree/master/process/argv_env.png
 
 下面我们以将环境变量和参数复制为例来讲解p指针的移动过程:
 ```
@@ -718,12 +718,12 @@ create_tables() 函数用于根据给定的当前堆栈指针值 p 以及参数�
 envc ,在新的程序堆栈中创建环境和参数变量指针表,并返回此时的堆栈指针值 sp 。创建完毕后堆栈指
 针表的形式见下图所示：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/create_tables.png
+https://github.com/novelinux/linux-0.11/tree/master/process/create_tables.png
 
 在经过上述步骤之后，我们可以看到一个可执行程序进程的代码和数据在虚拟的线性地址空间中的
 分布情况,如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/proc_lineaddr_layout.png
+https://github.com/novelinux/linux-0.11/tree/master/process/proc_lineaddr_layout.png
 
 每个进程在线性地址中都是从nr*64M的地址位置开始(nr是任务号),占用线性地址空间的范围是64M。
 其中最后部的环境参数数据块最长为128K,其左面起始堆栈指针。在进程创建时bss段的第一页被初始化为全0。

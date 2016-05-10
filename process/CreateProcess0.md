@@ -93,7 +93,7 @@ set_ldt_desc(gdt+FIRST_LDT_ENTRY,&(init_task.task.ldt)); // set ldt0
 
 这两行代码的目的就是要如下图表现的那样在GDT中初始化进程0所占的4,5两项,即初始化TSS0和LDT0:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/tss0_ldt0.jpg
+https://github.com/novelinux/linux-0.11/tree/master/process/tss0_ldt0.jpg
 
 path: include/asm/system.h
 ```
@@ -119,7 +119,7 @@ __asm__ ("movw $104,%1\n\t" \ // 将104, 即1101000存入描述符的第1,2字�
 
 TSS的段描述符:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/tss0_original.jpg
+https://github.com/novelinux/linux-0.11/tree/master/process/tss0_original.jpg
 
 对比源代码, 注释和图, 可以看出:
 movw $104,%1是将104赋给了段限长15:0的部分; 粒度G为0, 说明限长就是104字节,
@@ -135,7 +135,7 @@ movb $" type ",%4
 
 最终拼接出的tss0段描述符如下所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/tss0_finish.jpg
+https://github.com/novelinux/linux-0.11/tree/master/process/tss0_finish.jpg
 
 path: include/linux/sched.h
 ```
@@ -244,7 +244,7 @@ struct task_struct {
 进程0的task_struct是由操作系统设计者事先写好的, 就是sched.h中的INIT_TASK, 并用INIT_TASK的指针
 初始化task[64]的0项. 如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/task0.jpg
+https://github.com/novelinux/linux-0.11/tree/master/process/task0.jpg
 
 sched_init()函数接下来用for循环将task[64]除进程0占用的0项外的其余63项清空,同时将GDT的TSS1, LDT1往上的所有表项清零.
 

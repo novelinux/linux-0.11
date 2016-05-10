@@ -5,11 +5,11 @@ Linux 0.11跳转到main函数以后经过一系列初始化工作以后，创建
 
 初始化：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/init/StartMainInit.md
+https://github.com/novelinux/linux-0.11/tree/master/init/StartMainInit.md
 
 创建进程0：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/CreateProcess0.md
+https://github.com/novelinux/linux-0.11/tree/master/process/CreateProcess0.md
 
 现在Linux 0.11内核中的进程0现在处在3特权级状态，即进程状态。正式开始运行要做的第一件事就是
 作为父进程调用fork函数创建第一个子进程——进程1，这是父子进程创建机制的第一次实际运用。
@@ -122,7 +122,7 @@ B. 紧接着就执行"int $0x80"，产生一个软中断，CUP从3特权级的�
 
 init_task的内核栈如下所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/kernel_stack.jpg
+https://github.com/novelinux/linux-0.11/tree/master/process/kernel_stack.jpg
 
 **注意**: 在跳转到main函数后的初始化过程，提到的move_to_user_mode这个函数中做的压栈动作就是模仿中断的硬件压栈，
 这些压栈的数据将在后续的copy_process()函数中用来初始化进程1的TSS。值得注意，压栈的EIP指向当前指令"int $0x80"的下一行, 即:
@@ -136,7 +136,7 @@ if （__res >= 0）
 
 有关堆栈的介绍如下所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/misc/Stack.md
+https://github.com/novelinux/linux-0.11/tree/master/misc/Stack.md
 
 在sched_init函数中set_system_gate（0x80,&system_call）的设置，CPU自动压栈完成后，跳转到system_call.s
 中的_system_call处执行，执行过程如下所示:
@@ -470,7 +470,7 @@ Linux 0.11中仅有一个页目录表，通过线性地址中提供的“页目�
 
 整个过程如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/task_page.jpg
+https://github.com/novelinux/linux-0.11/tree/master/process/task_page.jpg
 
 调用copy_mem()函数，先设置进程1的代码段、数据段的段基址、段限长，提取当前进程（进程0）的代码段、数据段以及段限长的信息，
 并设置进程1的代码段和数据段的基地址。这个基地址就是它的进程号nr*64 MB。设置新进程LDT中段描述符中的基地址，如下所示:
@@ -666,7 +666,7 @@ int copy_page_tables(unsigned long from,unsigned long to,long size)
 完全一致，也就是它暂时和进程0共享一套内存页面管理结构，等将来它有了自己的程序，再把关系解除，
 并重新组织自己的内存管理结构。如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/task0_task1_page_table.jpg
+https://github.com/novelinux/linux-0.11/tree/master/process/task0_task1_page_table.jpg
 
 返回copy_process()函数中继续执行。设置task_struct中与文件相关的成员，包括:
 
@@ -969,4 +969,4 @@ if (this_page > LOW_MEM) {
 
 综上，进程1的创建工作已经全部完成，现在执行的是进程0的代码，从这开始，进程0准备切换到进程1去执行:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/ProcessSchedule0to1.md
+https://github.com/novelinux/linux-0.11/tree/master/process/ProcessSchedule0to1.md

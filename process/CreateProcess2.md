@@ -3,7 +3,7 @@ Linux 0.11 进程2的创建
 
 在进程1打开标准输入，标准输出，标准出错设备为创建进程2作准备以后:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/OpenTtyAndDup.md
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/OpenTtyAndDup.md
 
 接下来进程1要创建进程2.
 
@@ -42,7 +42,7 @@ void init(void)
 
 fork函数映射到sys_fork来创建进程2，这个过程跟进程0创建进程1类似:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/CreateProcess1.md
+https://github.com/novelinux/linux-0.11/tree/master/process/CreateProcess1.md
 
 进程2创建完毕后，fork函数返回，返回值为2，因此"!(pid=fork())"的值为假,于是调用wait函数，
 该函数的功能是: 如果进程1有等待退出的子进程，就为该进程的退出做善后工作；如果有子进程，但
@@ -140,4 +140,4 @@ repeat:
 
 接下来轮转到进程2以后，开始执行进程2的代码:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/Process2Running.md
+https://github.com/novelinux/linux-0.11/tree/master/process/Process2Running.md

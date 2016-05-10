@@ -196,7 +196,7 @@ int copy_mem(int nr,struct task_struct * p)
 子进程的执行是独立的,互不影响。如果父进程因为缺页新申请了物理页面,子进程是不知道的。
 示例如下:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/fork_share.png
+https://github.com/novelinux/linux-0.11/tree/master/memory/fork_share.png
 
 当子进程产生缺页时,子进程还是要尽量地“偷懒”,除了在被fork出来时可以与父进程共享内存外,
 父进程新申请的物理页也是可以被共享的。只要申请页被读入之后还没有被改变过就可以共享。

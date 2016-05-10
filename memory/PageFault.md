@@ -140,7 +140,7 @@ movl (esp+4),eax
 可执行文件,这个时候的内存使用请求可能是与其设置有关的,所以需要为其分配内存。
 对于进程的可执行文件,在这里只是说一下它的基本结构:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/exec.png
+https://github.com/novelinux/linux-0.11/tree/master/memory/exec.png
 
 进程对应的可执行文件包含有进程的代码段和数据段的内容,进程的线性地址与可执行文件内容的
 逻辑地址是对应的,如果出错是在代码段和数据段,应该先试图共享内存,共享不成功就应该分配
@@ -153,7 +153,7 @@ https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/exec.png
 在读入过程中,可能出现这种情况,由于线性地址太大,对应页面换算得到的逻辑盘块号过大,对应可执行文件
 却没有这么大(如下所示,这时后两块逻辑盘块将不会被读入),多余的逻辑盘将不会被读入。
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/memory/line_larger.png
+https://github.com/novelinux/linux-0.11/tree/master/memory/line_larger.png
 
 另外,读入一页内存之后,该页的结束地址可能会超过end_data。由于上述两种情况,应该对多出来的内存清零。
 最后就是映射页面, put_page只有在申请新的页表空间失败的情况会返回0,这时就应该将已经申请了的物理

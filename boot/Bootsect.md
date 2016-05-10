@@ -3,7 +3,7 @@ Linux 0.11 Bootsect
 
 在BIOS程序将bootsect从引导扇区中加载到内存位置0x7c00处:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/PowerUp2Bios.md
+https://github.com/novelinux/linux-0.11/tree/master/boot/PowerUp2Bios.md
 
 接下来便要执行bootsect程序.
 
@@ -322,4 +322,4 @@ path: boot/bootsect.s
 
 最终通过跳转指令跳转到setup模块继续执行:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/Setup.md
+https://github.com/novelinux/linux-0.11/tree/master/boot/Setup.md

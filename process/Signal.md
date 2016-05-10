@@ -325,19 +325,19 @@ do_signal() 函数是内核系统调用 (int 0x80) 中断处理程序中对信�
 程序堆栈中。这样,在当前系统调用结束返回后就会立刻执行信号句柄程序,然后再继续执行用户的程序,
 如下图所示：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/call_do_signal.png
+https://github.com/novelinux/linux-0.11/tree/master/process/call_do_signal.png
 
 在do_signal()函数把信号处理程序的参数插入到用户堆栈中之前,首先会把在用户程序堆栈指针向下扩展
 longs 个长字,然后将相关的参数添入其中,参见下图所示：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/modify_usr_stack.png
+https://github.com/novelinux/linux-0.11/tree/master/process/modify_usr_stack.png
 
 在用户程序调用系统调用刚进入内核时,该进程的内核态堆栈上会由 CPU 自动压入如上图所示的内容,
 也即: 用户程序的SS和ESP以及用户程序中下一条指令的执行点位置CS和EIP。
 在处理完此次指定的系统调用功能并准备调用do_signal()时,内核态堆栈中的内容见下图中左边所示。
 因此 do_signal() 的参数即是这些在内核态堆栈上的内容。
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/modify_usr_stack_specific.png
+https://github.com/novelinux/linux-0.11/tree/master/process/modify_usr_stack_specific.png
 
 在处理完两个默认信号句柄(SIG_IGN和SIG_DFL )之后,若用户自定义了信号处理程序(信号句柄sa_handler),
 则do_signal()开始准备把用户自定义的句柄插入用户态堆栈中。它首先把内核态堆栈中原用户程序的返回

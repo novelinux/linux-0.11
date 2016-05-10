@@ -6,7 +6,7 @@ Linux 0.11 从虚拟盘中安装根文件系统
 
 将根设备从软盘切换到虚拟盘:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/ChangeRootDev.md
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/ChangeRootDev.md
 
 切换之后我们将要从虚拟盘中安装根文件系统.
 
@@ -28,7 +28,7 @@ https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/ChangeRootDe
 一个文件挂在一个目录文件的目录项上，这个目录文件根据实际路径的不同，又可能挂在另一个目录文件的目录项上。
 一个目录文件有多个目录项，可以形成不同的路径。如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/filesystem.jpg
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/filesystem.jpg
 
 所有的文件（包括目录文件）的i节点最终挂接成一个树形结构，树根i节点就叫这个文件系统的根i节点。
 一个逻辑设备（一个物理设备可以分成多个逻辑设备，比如物理硬盘可以分成多个逻辑硬盘）只有一个
@@ -36,7 +36,7 @@ https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/filesystem.j
 加载文件系统最重要的标志，就是把一个逻辑设备上的文件系统的根i节点，关联到另一个文件系统的i节点上。
 具体是哪一个i节点，由操作系统的使用者通过mount命令决定, 如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/different_fs.jpg
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/different_fs.jpg
 
 另外，一个文件系统必须挂接在另一个文件系统上，按照这个设计，一定存在一个只被其他文件系统挂接的
 文件系统，这个文件系统就叫根文件系统，根文件系统所在的设备就叫根设备。
@@ -513,7 +513,7 @@ ret_from_sys_call:
 至此，sys_setup()的系统调用结束，进程1将返回init代码的调用点，打开终端设备文件
 以及复制文件句柄:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/OpenTtyAndDup.md
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/OpenTtyAndDup.md
 
 总结
 --------------------------------------------------------------------------------

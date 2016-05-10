@@ -3,7 +3,7 @@ Linux Setup模块的执行
 
 在bootsect程序将setup程序加载到0x90200位置处:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/Bootsect.md
+https://github.com/novelinux/linux-0.11/tree/master/boot/Bootsect.md
 
 之后便跳转到0x90200位置处执行setup程序，执行过程如下所示:
 
@@ -92,7 +92,7 @@ is_disk1:
 
 执行完上述程序以后, setup获取到的系统参数信息如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/system_machine_table.png
+https://github.com/novelinux/linux-0.11/tree/master/boot/system_machine_table.png
 
 移动system模块到内存起始位置0x00000
 --------------------------------------------------------------------------------
@@ -339,7 +339,7 @@ CPU在保护模式下, int 0x00～int 0x1F被Intel保留作为内部(不可屏�
 应的中断号重新分布,即在保护模式下,IRQ0x00～IRQ0x0F的中断号是int 0x20～int 0x2F。
 重新编程的结果如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/int_8259a.jpg
+https://github.com/novelinux/linux-0.11/tree/master/boot/int_8259a.jpg
 
 设置CPU工作模式为保护模式
 --------------------------------------------------------------------------------
@@ -369,7 +369,7 @@ path: boot/setup.s
 CPU工作方式转变为保护模式,一个重要的特征就是要根据GDT决定后续执行哪里的程序.
 开启保护模式前后工作对比图如下所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/protect_before_and_after.jpg
+https://github.com/novelinux/linux-0.11/tree/master/boot/protect_before_and_after.jpg
 
 跳转到system模块head程序继续执行
 --------------------------------------------------------------------------------
@@ -400,8 +400,8 @@ LDT; 1000的1表示所选的表(在此就是GDT)的1项(GDT项号排序为0项,1
 
 从下图我们可以看到,代码是从段基址0x00000000,偏移为0处,也就是head程序的开始位置开始执行的,这意味着执行head程序.
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/gdt_code_item.jpg
+https://github.com/novelinux/linux-0.11/tree/master/boot/gdt_code_item.jpg
 
 接下来便要跳转到head程序处执行:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/boot/Head.md
+https://github.com/novelinux/linux-0.11/tree/master/boot/Head.md

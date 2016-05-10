@@ -6,21 +6,21 @@ Linux 0.11 更换根设备
 
 在跳转到main函数并初始化以后：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/init/StartMainInit.md
+https://github.com/novelinux/linux-0.11/tree/master/init/StartMainInit.md
 
 设置了虚拟盘空间并初始化, 那时的虚拟盘只是一块“白盘”，尚未经过类似"格式化"的处理，
 还不能当做一个块设备使用。格式化所用的信息就在boot操作系统的软盘上。
 
 在开机启动以后：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/bios/Bios2Main.md
+https://github.com/novelinux/linux-0.11/tree/master/bios/Bios2Main.md
 
 我们知道，第一个扇区是bootsect，后面4个扇区是setup，接下来的240个扇区是包含head的system模块，
 一共有245个扇区。“格式化”虚拟盘的信息从256扇区开始。
 
 之后，创建完进程1并由进程1完成安装硬盘文件系统的准备工作以后：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/InstallDiskFs.md
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/InstallDiskFs.md
 
 接下来进程1就要格式化虚拟盘并更换根设备
 
@@ -149,4 +149,4 @@ void rd_load(void)
 
 在将软盘上的文件系统信息拷贝到虚拟盘中之后，需要在虚拟盘这个根设备上加载根文件系统：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/InstallRootFsFromRamdisk.md
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/InstallRootFsFromRamdisk.md

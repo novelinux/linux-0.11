@@ -15,7 +15,7 @@ Linux 0.11设计了两套机制来为此需求提供服务：
 保护，设计了管道机制。每个管道允许两个进程交互数据，一个进程向管道中输入数据，一个管道从管道中
 输出数据，如下图所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/pipe.jpeg
+https://github.com/novelinux/linux-0.11/tree/master/process/pipe.jpeg
 
 该机制实现了进程间通信，同时又不需要非法跨越进程间边界。
 操作系统在内存中为每个管道开辟一页内存，给这一页内存赋予了文件的属性。这一页内存由两个进程共享，
@@ -23,7 +23,7 @@ https://github.com/leeminghao/doc-linux/blob/master/0.11/process/pipe.jpeg
 在Linux 0.11中，管道操作分为两部分，一部分是创建管道，另一部分是管道的读写操作。
 下面我们通过实例对这两部分内容进行介绍。如下所示：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/Pipe.md
+https://github.com/novelinux/linux-0.11/tree/master/process/Pipe.md
 
 信号机制
 --------------------------------------------------------------------------------
@@ -33,4 +33,4 @@ https://github.com/leeminghao/doc-linux/blob/master/0.11/process/Pipe.md
 再从进程“被打断”之处继续执行。
 下面我们通过实例对这部分内容进行介绍。如下所示：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/Signal.md
+https://github.com/novelinux/linux-0.11/tree/master/process/Signal.md

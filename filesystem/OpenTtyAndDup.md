@@ -3,7 +3,7 @@ Linux 0.11 进程1打开终端设备文件以及复制文件句柄
 
 现在,计算机中已经创建了两个进程: 进程0和进程1. 在进程1完成从虚拟盘中安装根文件系统之后:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/InstallRootFsFromRamdisk.md
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/InstallRootFsFromRamdisk.md
 
 需要打开标准输入设备文件和标准输出文件，标准出错输出文件为创建进程2作准备.
 
@@ -417,7 +417,7 @@ static struct buffer_head * find_entry(struct m_inode ** dir,
 通过find_entry函数中获取目录项结构信息之后返回到get_dir函数中，在get_dir函数中从目录项中提取i节点号，
 从根目录i节点中获取设备号，通过iget函数获取最后一层目录的i节点信息，参考：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/filesystem/InstallRootFsFromRamdisk.md
+https://github.com/novelinux/linux-0.11/tree/master/filesystem/InstallRootFsFromRamdisk.md
 
 中是如何获取i节点信息的.
 
@@ -639,4 +639,4 @@ static int dupfd(unsigned int fd, unsigned int arg)
 至此，标准输入设备文件和标准输出，标准出错输出设备文件都已经打开了.
 接下来进程1要创建进程2执行shell程序，如下所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/process/CreateProcess2.md
+https://github.com/novelinux/linux-0.11/tree/master/process/CreateProcess2.md

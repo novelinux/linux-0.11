@@ -26,7 +26,7 @@ Linux 0.11 块设备驱动程序
 在系统(内核)与硬盘(块设备)进行IO操作时,需要考虑三个对象之间的交互作用.
 它们是: 系统, 控制器和驱动器(例如硬盘或软盘驱动器). 如下图所示：
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/driver/block_device_control.png
+https://github.com/novelinux/linux-0.11/tree/master/driver/block_device_control.png
 
 系统可以直接向控制器发送命令或等待控制器发出中断请求; 控制器在接收到命令后就会控制驱动器的操作,
 读/写数据或者进行其它操作。因此我们可以把这里控制器发出的中断信号看作是这三者之间的同步操作信号,
@@ -77,7 +77,7 @@ extern struct blk_dev_struct blk_dev[NR_BLK_DEV]; // 块设备表(数组)(NR_BLK
 为了便于扩展,Linus 把块设备表建成了一个以主设备号为索引的数组。在Linux 0.11中,主设备号有7种,
 如下表所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/driver/device_num.png
+https://github.com/novelinux/linux-0.11/tree/master/driver/device_num.png
 
 其中,主设备号1, 2和3分别对应块设备:虚拟盘、软盘和硬盘。在块设备数组中其它各项都被默认地置成NULL.
 当内核发出一个块设备读写或其它操作请求时, ll_rw_block() 函数即会根据其参数中指明的操作命令
@@ -125,7 +125,7 @@ extern struct request request[NR_REQUEST]; // 请求队列数组(NR_REQUEST = 32
 也即: dev_no = (major<<8) + minor
 Linux 0.11中两个硬盘的所有逻辑设备号如下表所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/driver/hd_num.png
+https://github.com/novelinux/linux-0.11/tree/master/driver/hd_num.png
 
 其中 0x300 和 0x305 并不与哪个分区对应,而是代表整个硬盘。
 
@@ -138,4 +138,4 @@ TYPE 是软驱的类型, 2 表示1.2M软驱,7表示1.44M软驱, 也即floppy.c�
 数组的索引值.
 软盘类型如下表所示:
 
-https://github.com/leeminghao/doc-linux/blob/master/0.11/driver/floppy_type.png
+https://github.com/novelinux/linux-0.11/tree/master/driver/floppy_type.png

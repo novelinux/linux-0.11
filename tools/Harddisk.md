@@ -17,7 +17,7 @@
 无论哪种硬盘，都是由盘片、磁头、盘片主轴、控制电机、磁头控制器、数据转换器、接口、缓存等
 几个部份组成。如下图所示：
 
-https://github.com/leeminghao/doc-linux/tree/master/0.11/tools/harddisk.png
+https://github.com/novelinux/linux-0.11/tree/master/tools/harddisk.png
 
 所有的盘片都固定在一个旋转轴上，这个轴即盘片主轴。而所有盘片之间是绝对平行的，在每个盘片的存储面
 上都有一个磁头，磁头与盘片之间的距离比头发丝的直径还小。所有的磁头连在一个磁头控制器上，由磁头
@@ -31,7 +31,7 @@ https://github.com/leeminghao/doc-linux/tree/master/0.11/tools/harddisk.png
 
 硬盘在逻辑上被划分为磁道、柱面以及扇区.
 
-https://github.com/leeminghao/doc-linux/tree/master/0.11/tools/logicharddisk.png
+https://github.com/novelinux/linux-0.11/tree/master/tools/logicharddisk.png
 
 磁头靠近主轴接触的表面，即线速度最小的地方，是一个特殊的区域，它不存放任何数据，称为启停区或
 着陆区（LandingZone），启停区外就是数据区。在最外圈，离主轴最远的地方是“0”磁道，硬盘数据的存放
@@ -100,7 +100,7 @@ https://github.com/leeminghao/doc-linux/tree/master/0.11/tools/logicharddisk.png
 操作系统以扇区(Sector)形式将信息存储在硬盘上，每个扇区包括512个字节的数据和一些其他信息。
 一个扇区有两个主要部分: 存储数据地点的标识符和存储数据的数据段。如下图所示：
 
-https://github.com/leeminghao/doc-linux/tree/master/0.11/tools/sector.png
+https://github.com/novelinux/linux-0.11/tree/master/tools/sector.png
 
 扇区的第一个主要部分是标识符, 标识符，就是扇区头标，包括组成扇区三维地址的三个数字.
 

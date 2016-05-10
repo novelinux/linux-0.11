@@ -136,9 +136,9 @@ screenmode: name="sample"
 
 * 使用mkfs命令在刚建立的第1个分区上创建MINIX文件系统。命令与信息如下所示。
 
-https://github.com/leeminghao/doc-linux/tree/master/0.11/tools/step1.png
+https://github.com/novelinux/linux-0.11/tree/master/tools/step1.png
 
 然后执行下列命令，把新的文件系统加载到/mnt目录上, 在加载了硬盘分区上的文件系统之后，
 我们就可以把软盘上的根文件系统复制到硬盘上去了, 请执行以下命令：
 
-https://github.com/leeminghao/doc-linux/tree/master/0.11/tools/step2.png
+https://github.com/novelinux/linux-0.11/tree/master/tools/step2.png
